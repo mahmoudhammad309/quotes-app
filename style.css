@@ -1,3 +1,99 @@
-h1 {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+blockquote{
+  display:block;
+  background: #fff;
+  padding: 15px 20px 15px 45px;
+  margin: 0 0 20px;
+  position: relative;
+  
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #666;
+  text-align: justify;
+  
+  /*Borders - (Optional)*/
+  border-left: 15px solid #c76c0c;
+  border-right: 2px solid #c76c0c;
+  
+  /*Box Shadow - (Optional)*/
+  -moz-box-shadow: 2px 2px 15px #ccc;
+  -w;ebkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+}
+
+
+
+blockquote::after{
+  /*Reset to make sure*/
+  content: "";
+}
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: 1px solid;
+  background-color: #c76c0c;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #c76c0c;
+  background-color: #fff;
+  border:1px solid;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-save {
+  padding: 0.8rem 1.5rem;
+  background-color: #098f1b;
+  border: 1px solid;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  color: #098f1b;
+  background-color: #fff;
+  border:1px solid;
+}
+
+.saved-quotes {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.saved-quotes .qoute{
+  display: flex;
+  align-items: center;
+  background-color: rgb(184, 243, 209);
+  width: 95%;
+}
+.saved-quotes .qoute p {
+  padding: 1rem;
+}
+
+.saved-quotes .icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
   color: red;
+  background-color: green;
+  padding: 0.45rem;
+  width: 5%;
 }
