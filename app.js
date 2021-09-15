@@ -4,38 +4,13 @@ const btn = document.querySelector('.btn');
 const saveBtn = document.querySelector('.btn-save');
 const savedQuotes = document.querySelector('.saved-quotes');
 let count = 0;
+const general = document.querySelector('.general');
+const showFav = document.querySelector('.show');
 
 
-saveBtn.addEventListener('click', () => {
-  const savedQuotesDiv = document.createElement('div');
-
-  const qouteDiv = document.createElement('div');
-  const iconsDiv = document.createElement('div');
-  const author = document.querySelector('.author').textContent;
-  const quote = document.querySelector('.quotes').textContent;
-  const general = document.querySelector('.general')
-  savedQuotesDiv.append(qouteDiv, iconsDiv);
-  qouteDiv.innerHTML +=`<p>${author}</p>`;
-  qouteDiv.innerHTML +=`<p>${quote}</p>`;
-  iconsDiv.innerHTML += `<i class="far fa-times-circle"></i>`;
-  savedQuotesDiv.classList.add('saved-quotes');
-  qouteDiv.classList.add('qoute')
-  iconsDiv.classList.add('icons');
-  general.append(savedQuotesDiv)
-  
-})
-
-
-
-
-
-
-
-
-
-
-
-btn.addEventListener('click',changeQuotes)
+saveBtn.addEventListener('click', saveFavorite);
+btn.addEventListener('click',changeQuotes);
+showFav.addEventListener('click', showFavorite)
 
 function changeQuotes() {
   fetch('quotes.json')
@@ -51,5 +26,31 @@ function changeQuotes() {
   console.log('rejected', err)
   });
 
-}
+};
 
+function saveFavorite() {
+  const savedQuotesDiv = document.createElement('div');
+  const qouteDiv = document.createElement('div');
+  const iconsDiv = document.createElement('div');
+
+  savedQuotesDiv.append(qouteDiv, iconsDiv);
+  qouteDiv.innerHTML +=`<p>${author.textContent}</p>`;
+  qouteDiv.innerHTML +=`<p>${quote.textContent}</p>`;
+  iconsDiv.innerHTML += `<i class="far fa-times-circle icon"></i>`;
+  savedQuotesDiv.classList.add('saved-quotes');
+  qouteDiv.classList.add('qoute');
+  iconsDiv.classList.add('icons');
+  general.append(savedQuotesDiv);
+  
+  // remove quotes
+  const icons = document.querySelectorAll('.icon');
+  icons.forEach((e) => {
+    e.addEventListener('click', () => {
+      e.parentElement.parentElement.remove()
+    })
+  })
+};
+
+function showFavorite() {
+  general.classList.toggle('hide')
+}
